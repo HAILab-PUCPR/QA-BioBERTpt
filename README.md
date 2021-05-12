@@ -39,13 +39,16 @@ Será retornada à resposta prevista pelo modelo a sua pergunta. O primeiro aces
 
 <img src="img/perguntas3.png">
 
-Output da API:
+**Output da API:**
 
-<img src="img/cmd1.png">
 Obtendo o modelo e tokenizador do repositório Hugging Faces
 
-<img src="img/cmd2.png">
+<img src="img/cmd1.png">
+
 Formato da resposta
+
+<img src="img/cmd2.png">
+
 
 ## Como citar
 
