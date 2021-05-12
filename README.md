@@ -1,3 +1,4 @@
+<img src="img/logo-qa-biobertpt.png">
 # QA-BioBERTpt 
 ## Dúvidas sobre Covid-19? BERT responde
 
