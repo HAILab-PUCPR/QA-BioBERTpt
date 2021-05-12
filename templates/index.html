@@ -1,0 +1,140 @@
+<head>
+<link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <link href="../static/css/flat-ui.css" rel="stylesheet">
+  <link href="../static/css/demo.css" rel="stylesheet">
+  <link href="../static/css/custom.css" rel="stylesheet">
+  <script type="text/javascript" src="../static/js/sonic.js"></script>
+
+<style>
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* enquanto estiver carregando, o scroll da página estará desativado */
+body.loading {
+    overflow: hidden;   
+}
+
+/* a partir do momento em que o body estiver com a classe loading,  o modal aparecerá */
+body.loading .modal {
+    display: block;
+}
+</style>
+<script type="text/javascript">
+        
+</script>
+</head>
+<body>
+  <br>
+  <h4 align="center">Dúvidas sobre COVID-19? BERT responde</h4>
+  <br>
+  <br>
+  <div class="modal"></div>
+
+  <div>	
+	  <div class="col-md-8">
+	  <label for="perguntaExemplo"><h6>Pergunta:</h6></label><br>
+	  <select name="perguntaExemplos" id="perguntaExemplos" class="selectAcao" >
+		<option value="selecione"></option>
+		<option value="0">Quem causa a Covid-19?</option>
+		<option value="1">O que é Covid-19?</option>
+		<option value="2">O que é SARS-CoV-2?</option>
+		<option value="3">O que são coronavirus?</option>
+		<option value="4">Quais os sintomas?</option>
+		<option value="5">O que é o caso assintomático?</option>
+		<option value="6">O que é o caso moderado?</option>
+		<option value="7">O que é o caso grave?</option>
+		<option value="8">O que é o caso crítico?</option>
+		<option value="9">Quais as complicações?</option>
+		<option value="10">Como é transmitida?</option>
+		<option value="11">Como é o diagnótico?</option>
+		<option value="12">Quais as medidas de proteção?</option>
+		<option value="13">Qual a distância física mínima?</option>
+	  </select>
+	  </div>
+	  <br>
+       <div class="col-md-8">
+	   <br>
+          <input type="text" id="pergunta" value="" placeholder="Pergunta" class="form-control" onkeydown="if 
+		  (event.keyCode == 13) document.getElementById('submit').click()" rows="5"></input>
+      <br>
+          <a id = "submit" class="btn btn-block btn-lg btn-primary">Perguntar</a>
+      </div>
+	  <div class="col-md-8">
+	  <br><br>
+	  Fonte dos dados: <a href="https://coronavirus.saude.gov.br/sobre-a-doenca" target="_blank">Ministério da Saúde</a>
+	  </div>
+	  <div class="col-md-10">
+	  <br><br><h6>Resposta:</h6><br>
+		<div id = "retorno" placeholder="resposta"></div>
+	  </div>
+	</div>  
+	<br><br><br>
+</body>
+<script>
+
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+function retornaTextoDiv(retorno){
+	//alert(retorno2.length); // 48
+	//console.log(retorno2.length)
+	textoDiv = '<div>'+capitalize(retorno.answer)+'</div>';
+	console.log(textoDiv);
+	document.getElementById("retorno").innerHTML = textoDiv;
+}
+
+
+$("#perguntaExemplos").on("change", function(){
+  var select = document.getElementById('perguntaExemplos');
+  if (select.options[select.selectedIndex].value != "selecione")
+	document.getElementById("pergunta").value = select.options[select.selectedIndex].text;
+else
+	document.getElementById("pergunta").value = "";
+});
+
+
+
+document.getElementById("submit").onclick = function() {
+      $body = $("body");
+      $body.addClass("loading");
+
+      var pergunta = document.getElementById("pergunta").value;
+	  // tirar "-" pq dá erro
+	  pergunta = pergunta.replace("-", " ");
+      path = "/respostas?pergunta=" + pergunta;
+	  //alert(path)
+	  $.ajax({
+            async: false,
+            type: "GET",
+            url: path,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function(comp){
+				//alert(comp)
+				retornaTextoDiv(comp);
+            },
+            error: function(comp) {
+                console.log(comp);
+                alert("Ocorreu um erro, por favor tente novamente.");
+				$body.removeClass("loading");
+            }
+        }).done(function(data) {
+				$body.removeClass("loading");
+            });;
+
+}
+</script>
