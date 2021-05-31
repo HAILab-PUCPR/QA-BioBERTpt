@@ -1,11 +1,11 @@
 # QA-BioBERTpt 
-## Dúvidas sobre Covid-19? BERT responde
+## Dúvidas clínicas? BERT responde
 
 ** *trabalho em andamento* **
 
 ## Sobre
 
-QA-BioBERTpt é um sistema de perguntas e respostas (Q&A - Questions and Answers) que utiliza um servidor flask em python e uma interface gráfica que recebe as perguntas do usuário. Neste exemplo, as perguntas deverão ser sobre Covid-19, mas é facilmente parametrizado (basta alterar o contexto).
+QA-BioBERTpt é um sistema de perguntas e respostas (Q&A - Questions and Answers) que utiliza um servidor flask em python e uma interface gráfica que recebe as perguntas do usuário. Juntamente com as perguntas, deve ser enviado um contexto que possua a resposta.
 
 Para encontrar as respostas, é acessado o modelo [bioBERTpt-squad-v1.1-portuguese](https://huggingface.co/pucpr/bioBERTpt-squad-v1.1-portuguese), treinado com a [versão em português do squad v-1](https://medium.com/@pierre_guillou/nlp-modelo-de-question-answering-em-qualquer-idioma-baseado-no-bert-base-estudo-de-caso-em-12093d385e78), a partir do [BioBERTpt](https://github.com/HAILab-PUCPR/BioBERTpt).
 
@@ -26,15 +26,13 @@ python app.py
 ```
 4. No navegador, acesse http://localhost:5000/ (porta padrão do flask)
 
-5. Escreve uma pergunta sobre Codiv-19 ou selecione alguma pergunta de exemplo e clicar no botão Perguntar. 
+5. Escreve uma pergunta com seu devido contexto e clique no botão Perguntar. 
  
 Será retornada à resposta prevista pelo modelo a sua pergunta. O primeiro acesso pode ser mais lento, já que o modelo e tokenizador serão baixados do repositório [HuggingFaces](https://huggingface.co/pucpr/bioBERTpt-squad-v1.1-portuguese).
 
-<img src="img/perguntas1.png">
+<img src="img/perguntas.png">
 
-<img src="img/perguntas2.png">
-
-<img src="img/perguntas3.png">
+<img src="img/perguntas.png">
 
 Output da API:
 

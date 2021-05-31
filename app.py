@@ -15,8 +15,9 @@ def index():
 @app.route("/respostas")
 def respostas():
     print ("chamou QA")
-    pergunta = [request.args.get('pergunta')]
-    result = predict.predict(pergunta)
+    pergunta = request.args.get('pergunta')
+    contexto = request.args.get('contexto')
+    result = predict.predict(pergunta, contexto)
     print ("resposta")
     print (result)
     return result
