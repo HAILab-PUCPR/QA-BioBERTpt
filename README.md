@@ -9,6 +9,10 @@ QA-BioBERTpt é um sistema de perguntas e respostas (Q&A - Questions and Answers
 
 Para encontrar as respostas, é acessado o modelo [bioBERTpt-squad-v1.1-portuguese](https://huggingface.co/pucpr/bioBERTpt-squad-v1.1-portuguese), treinado com a [versão em português do squad v-1](https://medium.com/@pierre_guillou/nlp-modelo-de-question-answering-em-qualquer-idioma-baseado-no-bert-base-estudo-de-caso-em-12093d385e78), a partir do [BioBERTpt](https://github.com/HAILab-PUCPR/BioBERTpt).
 
+If the model was useful, we would love to receive a like ❤️
+
+<img src="./img/like-biobertpt-squad.jpg" alt="QA-BioBERTpt">
+
 ## Como executar 
 1. Clone o repositório
 2. Instale as biblitecas necessárias (se preferir, use [Anaconda](http://www.anaconda.com))
