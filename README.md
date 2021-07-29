@@ -9,7 +9,7 @@ QA-BioBERTpt é um sistema de perguntas e respostas (Q&A - Questions and Answers
 
 Para encontrar as respostas, é acessado o modelo [bioBERTpt-squad-v1.1-portuguese](https://huggingface.co/pucpr/bioBERTpt-squad-v1.1-portuguese), treinado com a [versão em português do squad v-1](https://medium.com/@pierre_guillou/nlp-modelo-de-question-answering-em-qualquer-idioma-baseado-no-bert-base-estudo-de-caso-em-12093d385e78), a partir do [BioBERTpt](https://github.com/HAILab-PUCPR/BioBERTpt).
 
-If the model was useful, we would love to receive a like ❤️
+O modelo está publicado no repositório do Hugging Faces, [neste endereço](https://huggingface.co/pucpr/bioBERTpt-squad-v1.1-portuguese). Se o modelo foi útil, nós adoraríamos receber um like ❤️
 
 <img src="./img/like-biobertpt-squad.jpg" alt="QA-BioBERTpt">
 
