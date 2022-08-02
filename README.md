@@ -50,4 +50,23 @@ Formato da resposta
 
 ## Como citar
 
-** *em breve* **
+```
+@InProceedings{10.1007/978-3-030-91699-2_10,
+author="Oliveira, Lucas Emanuel Silva e.
+and Schneider, Elisa Terumi Rubel
+and Gumiel, Yohan Bonescki
+and Luz, Mayara Aparecida Passaura da
+and Paraiso, Emerson Cabrera
+and Moro, Claudia",
+editor="Britto, Andr{\'e}
+and Valdivia Delgado, Karina",
+title="Experiments on Portuguese Clinical Question Answering",
+booktitle="Intelligent Systems",
+year="2021",
+publisher="Springer International Publishing",
+address="Cham",
+pages="133--145",
+abstract="Question answering (QA) systems aim to answer human questions made in natural language. This type of functionality can be very useful in the most diverse application domains, such as the biomedical and clinical. Considering the clinical context, where we have a growing volume of information stored in electronic health records, answering questions about the patient status can improve the decision-making and optimize the patient care. In this work, we carried out the first experiments to develop a QA model for clinical texts in Portuguese. To overcome the lack of corpora for the required language and context, we used a transfer learning approach supported by pre-trained attention-based models from the Transformers library. We fine-tuned the BioBERTpt model with a translated version of the SQuAD dataset. The evaluation showed promising results when evaluated in different clinical scenarios, even without the application of a clinical QA corpus to support a training process. The developed model is publicly available to the scientific community.",
+isbn="978-3-030-91699-2"
+}
+```
